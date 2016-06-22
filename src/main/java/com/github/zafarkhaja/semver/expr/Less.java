@@ -56,7 +56,7 @@ class Less implements Expression {
      * @return {@code true} if the version is less than the
      *         parsed version or {@code false} otherwise
      */
-    @Override
+    //@Override
     public boolean interpret(Version version) {
         return version.lessThan(parsedVersion);
     }

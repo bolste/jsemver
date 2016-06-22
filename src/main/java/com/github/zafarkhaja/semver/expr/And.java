@@ -62,7 +62,7 @@ class And implements Expression {
      * @return {@code true} if both operands evaluate to {@code true}
      *         or {@code false} otherwise
      */
-    @Override
+//    @Override
     public boolean interpret(Version version) {
         return left.interpret(version) && right.interpret(version);
     }

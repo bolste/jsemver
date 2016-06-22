@@ -36,13 +36,13 @@ public class AndTest {
     @Test
     public void shouldCheckIfBothExpressionsEvaluateToTrue() {
         Expression left = new Expression() {
-            @Override
+//            @Override
             public boolean interpret(Version version) {
                 return true;
             }
         };
         Expression right = new Expression() {
-            @Override
+//            @Override
             public boolean interpret(Version version) {
                 return true;
             }

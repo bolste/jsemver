@@ -47,7 +47,7 @@ class VersionParser implements Parser<Version> {
             /**
              * {@inheritDoc}
              */
-            @Override
+            //@Override
             public boolean isMatchedBy(Character chr) {
                 if (chr == null) {
                     return false;
@@ -59,7 +59,7 @@ class VersionParser implements Parser<Version> {
             /**
              * {@inheritDoc}
              */
-            @Override
+            //@Override
             public boolean isMatchedBy(Character chr) {
                 if (chr == null) {
                     return false;
@@ -72,7 +72,7 @@ class VersionParser implements Parser<Version> {
             /**
              * {@inheritDoc}
              */
-            @Override
+            //@Override
             public boolean isMatchedBy(Character chr) {
                 if (chr == null) {
                     return false;
@@ -84,7 +84,7 @@ class VersionParser implements Parser<Version> {
             /**
              * {@inheritDoc}
              */
-            @Override
+            //@Override
             public boolean isMatchedBy(Character chr) {
                 if (chr == null) {
                     return false;
@@ -96,7 +96,7 @@ class VersionParser implements Parser<Version> {
             /**
              * {@inheritDoc}
              */
-            @Override
+            //@Override
             public boolean isMatchedBy(Character chr) {
                 if (chr == null) {
                     return false;
@@ -108,7 +108,7 @@ class VersionParser implements Parser<Version> {
             /**
              * {@inheritDoc}
              */
-            @Override
+            //@Override
             public boolean isMatchedBy(Character chr) {
                 return chr == null;
             }
@@ -117,7 +117,7 @@ class VersionParser implements Parser<Version> {
             /**
              * {@inheritDoc}
              */
-            @Override
+            //@Override
             public boolean isMatchedBy(Character chr) {
                 EnumSet<CharType> itself = EnumSet.of(ILLEGAL);
                 for (CharType type : EnumSet.complementOf(itself)) {
@@ -158,7 +158,7 @@ class VersionParser implements Parser<Version> {
      * @throws IllegalArgumentException if the input string is {@code NULL} or empty
      */
     VersionParser(String input) {
-        if (input == null || input.isEmpty()) {
+        if (input == null || (input.length()==0)) {
             throw new IllegalArgumentException("Input string is NULL or empty");
         }
         Character[] elements = new Character[input.length()];
@@ -177,7 +177,7 @@ class VersionParser implements Parser<Version> {
      * @throws ParseException when there is a grammar error
      * @throws UnexpectedCharacterException when encounters an unexpected character type
      */
-    @Override
+    //@Override
     public Version parse(String input) {
         return parseValidSemVer();
     }

@@ -96,7 +96,7 @@ class Lexer {
             /**
              * {@inheritDoc}
              */
-            @Override
+            //@Override
             public boolean isMatchedBy(Token token) {
                 if (token == null) {
                     return false;
@@ -196,7 +196,7 @@ class Lexer {
     Stream<Token> tokenize(String input) {
         List<Token> tokens = new ArrayList<Token>();
         int tokenPos = 0;
-        while (!input.isEmpty()) {
+        while (!(input.length()==0)) {
             boolean matched = false;
             for (Token.Type tokenType : Token.Type.values()) {
                 Matcher matcher = tokenType.pattern.matcher(input);

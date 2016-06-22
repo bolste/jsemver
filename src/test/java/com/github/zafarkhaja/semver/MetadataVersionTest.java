@@ -136,7 +136,7 @@ public class MetadataVersionTest {
         @Test
         public void shouldReturnEmptyStringOnToString() {
             MetadataVersion v = MetadataVersion.NULL;
-            assertTrue(v.toString().isEmpty());
+            assertTrue(v.toString().length()==0);
         }
 
         @Test

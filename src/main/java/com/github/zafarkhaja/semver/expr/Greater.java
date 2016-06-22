@@ -56,7 +56,7 @@ class Greater implements Expression {
      * @return {@code true} if the version is greater than the
      *         parsed version or {@code false} otherwise
      */
-    @Override
+    //@Override
     public boolean interpret(Version version) {
         return version.greaterThan(parsedVersion);
     }

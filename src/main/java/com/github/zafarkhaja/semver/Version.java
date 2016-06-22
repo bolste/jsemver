@@ -165,7 +165,7 @@ public class Version implements Comparable<Version> {
          * @return {@code true} if the string is filled or {@code false} otherwise
          */
         private boolean isFilled(String str) {
-            return str != null && !str.isEmpty();
+            return str != null && !(str.length()==0);
         }
     }
 
@@ -193,7 +193,7 @@ public class Version implements Comparable<Version> {
          *
          * @return {@inheritDoc}
          */
-        @Override
+        //@Override
         public int compare(Version v1, Version v2) {
             int result = v1.compareTo(v2);
             if (result == 0) {
@@ -631,10 +631,10 @@ public class Version implements Comparable<Version> {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(getNormalVersion());
-        if (!getPreReleaseVersion().isEmpty()) {
+        if (!(getPreReleaseVersion().length()==0)) {
             sb.append(PRE_RELEASE_PREFIX).append(getPreReleaseVersion());
         }
-        if (!getBuildMetadata().isEmpty()) {
+        if (!(getBuildMetadata().length()==0)) {
             sb.append(BUILD_PREFIX).append(getBuildMetadata());
         }
         return sb.toString();
@@ -654,7 +654,7 @@ public class Version implements Comparable<Version> {
      * @see #BUILD_AWARE_ORDER
      * @see #compareWithBuildsTo(Version other)
      */
-    @Override
+    //@Override
     public int compareTo(Version other) {
         int result = normal.compareTo(other.normal);
         if (result == 0) {

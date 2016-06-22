@@ -91,7 +91,7 @@ public class StreamTest {
         );
         try {
             stream.consume(new ElementType<Character>() {
-                @Override
+//                @Override
                 public boolean isMatchedBy(Character element) {
                     return false;
                 }
@@ -128,7 +128,7 @@ public class StreamTest {
         );
         assertTrue(stream.positiveLookahead(
             new ElementType<Character>() {
-                @Override
+//                @Override
                 public boolean isMatchedBy(Character element) {
                     return element == 'a';
                 }
@@ -136,7 +136,7 @@ public class StreamTest {
         ));
         assertFalse(stream.positiveLookahead(
             new ElementType<Character>() {
-                @Override
+//                @Override
                 public boolean isMatchedBy(Character element) {
                     return element == 'c';
                 }
@@ -151,13 +151,13 @@ public class StreamTest {
         );
         assertTrue(stream.positiveLookaheadBefore(
             new ElementType<Character>() {
-                @Override
+//                @Override
                 public boolean isMatchedBy(Character element) {
                     return element == '.';
                 }
             },
             new ElementType<Character>() {
-                @Override
+//                @Override
                 public boolean isMatchedBy(Character element) {
                     return element == '1';
                 }
@@ -165,13 +165,13 @@ public class StreamTest {
         ));
         assertFalse(stream.positiveLookaheadBefore(
             new ElementType<Character>() {
-                @Override
+//                @Override
                 public boolean isMatchedBy(Character element) {
                     return element == '1';
                 }
             },
             new ElementType<Character>() {
-                @Override
+//                @Override
                 public boolean isMatchedBy(Character element) {
                     return element == '.';
                 }
@@ -187,7 +187,7 @@ public class StreamTest {
         assertTrue(stream.positiveLookaheadUntil(
             3,
             new ElementType<Character>() {
-                @Override
+//                @Override
                 public boolean isMatchedBy(Character element) {
                     return element == '0';
                 }
@@ -196,7 +196,7 @@ public class StreamTest {
         assertFalse(stream.positiveLookaheadUntil(
             3,
             new ElementType<Character>() {
-                @Override
+//                @Override
                 public boolean isMatchedBy(Character element) {
                     return element == 'a';
                 }

@@ -23,6 +23,7 @@
  */
 package com.github.zafarkhaja.semver.util;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -239,7 +240,7 @@ public class Stream<E> implements Iterable<E> {
      *
      * @return an iterator of the remaining elements in this stream
      */
-    @Override
+    //@Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
 
@@ -256,7 +257,7 @@ public class Stream<E> implements Iterable<E> {
             /**
              * {@inheritDoc}
              */
-            @Override
+            //@Override
             public boolean hasNext() {
                 return index < elements.length;
             }
@@ -264,7 +265,7 @@ public class Stream<E> implements Iterable<E> {
             /**
              * {@inheritDoc}
              */
-            @Override
+            //@Override
             public E next() {
                 if (index >= elements.length) {
                     throw new NoSuchElementException();
@@ -275,7 +276,7 @@ public class Stream<E> implements Iterable<E> {
             /**
              * {@inheritDoc}
              */
-            @Override
+            //@Override
             public void remove() {
                 throw new UnsupportedOperationException();
             }
@@ -291,6 +292,23 @@ public class Stream<E> implements Iterable<E> {
      * @return an array containing all of elements in this stream
      */
     public E[] toArray() {
-        return Arrays.copyOfRange(elements, offset, elements.length);
+        //return Arrays.copyOfRange(elements, offset, elements.length);
+        return copyOfRange(elements, offset, elements.length);
+    }
+    
+    private E[] copyOfRange(E[] original, int from, int to) {
+      return copyOfRange(original, from, to, (Class<E[]>)original.getClass());
+    }
+    
+    private E[] copyOfRange(E[] original, int from, int to, Class<? extends E[]> newType) {
+      int newLength = to - from;
+        if (newLength < 0)
+            throw new IllegalArgumentException(from + " > " + to);
+        E[] copy = ((Object)newType == (Object)Object[].class)
+            ? (E[]) new Object[newLength]
+            : (E[]) Array.newInstance(newType.getComponentType(), newLength);
+        System.arraycopy(original, from, copy, 0,
+                         Math.min(original.length - from, newLength));
+        return copy;
     }
 }

@@ -23,6 +23,7 @@
  */
 package com.github.zafarkhaja.semver;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -124,10 +125,24 @@ class MetadataVersion implements Comparable<MetadataVersion> {
             int intId = Integer.parseInt(lastId);
             ids[ids.length - 1] = String.valueOf(++intId);
         } else {
-            ids = Arrays.copyOf(ids, ids.length + 1);
+            // ids = Arrays.copyOf(ids, ids.length + 1);
+            ids = copyOf(ids, ids.length + 1);
             ids[ids.length - 1] = String.valueOf(1);
         }
         return new MetadataVersion(ids);
+    }
+    
+    private static <T,U> T[] copyOf(U[] original, int newLength, Class<? extends T[]> newType) {
+        T[] copy = ((Object)newType == (Object)Object[].class)
+            ? (T[]) new Object[newLength]
+            : (T[]) Array.newInstance(newType.getComponentType(), newLength);
+        System.arraycopy(original, 0, copy, 0,
+                         Math.min(original.length, newLength));
+        return copy;
+    }
+    
+    private static <T> T[] copyOf(T[] original, int newLength) {
+        return (T[]) copyOf(original, newLength, original.getClass());
     }
 
     /**
@@ -167,7 +182,7 @@ class MetadataVersion implements Comparable<MetadataVersion> {
     /**
      * {@inheritDoc}
      */
-    @Override
+    //@Override
     public int compareTo(MetadataVersion other) {
         if (other == MetadataVersion.NULL) {
             /**

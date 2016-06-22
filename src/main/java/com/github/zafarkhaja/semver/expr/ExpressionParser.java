@@ -81,7 +81,7 @@ public class ExpressionParser implements Parser<Expression> {
      * @throws LexerException when encounters an illegal character
      * @throws UnexpectedTokenException when consumes a token of an unexpected type
      */
-    @Override
+    //@Override
     public Expression parse(String input) {
         tokens = lexer.tokenize(input);
         Expression expr = parseSemVerExpression();

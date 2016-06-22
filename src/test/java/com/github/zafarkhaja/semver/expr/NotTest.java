@@ -36,13 +36,13 @@ public class NotTest {
     @Test
     public void shouldRevertBooleanResultOfExpression() {
         Expression expr1 = new Expression() {
-            @Override
+            //@Override
             public boolean interpret(Version version) {
                 return false;
             }
         };
         Expression expr2 = new Expression() {
-            @Override
+//            @Override
             public boolean interpret(Version version) {
                 return true;
             }

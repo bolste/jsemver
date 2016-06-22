@@ -62,7 +62,7 @@ class Or implements Expression {
      * @return {@code true} if one of the operands evaluates to {@code true}
      *         or {@code false} otherwise
      */
-    @Override
+    //@Override
     public boolean interpret(Version version) {
         return left.interpret(version) || right.interpret(version);
     }

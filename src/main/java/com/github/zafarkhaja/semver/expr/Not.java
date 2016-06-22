@@ -54,7 +54,7 @@ class Not implements Expression {
      * @return {@code true} if the given expression evaluates to
      *         {@code false} and {@code false} otherwise
      */
-    @Override
+    //@Override
     public boolean interpret(Version version) {
         return !expr.interpret(version);
     }

@@ -259,7 +259,7 @@ public class CompositeExpression implements Expression {
     /**
      * {@inheritDoc}
      */
-    @Override
+    //@Override
     public boolean interpret(Version version) {
         return exprTree.interpret(version);
     }

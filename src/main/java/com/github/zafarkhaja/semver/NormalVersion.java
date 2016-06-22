@@ -125,7 +125,7 @@ class NormalVersion implements Comparable<NormalVersion> {
     /**
      * {@inheritDoc}
      */
-    @Override
+    //@Override
     public int compareTo(NormalVersion other) {
         int result = major - other.major;
         if (result == 0) {
